@@ -119,7 +119,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#">Adicionar peixe</a>
+                    <a href="{{ route('fishes.create') }}">Adicionar peixe</a>
 
                     
                 </div>
