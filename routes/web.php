@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FishController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('list-user', [UserController::class, 'listUser']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/peixes/criar', [FishController::class, 'create'])->name('fishes.create');
+Route::post('/peixes/store', [FishController::class, 'store'])->name('fishes.store');
+
