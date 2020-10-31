@@ -35,16 +35,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>Teste</th>
-                                <th>25cm</th>
-                                <th>50kg</th>
-                                <th><a href="#">Veja a imagem</a></th>
-                            </tr>
+                            @foreach ($fishes as $fish)
+                                <tr>
+                                    <th>{{ $fish->name }}</th>
+                                    <th>{{ $fish->size }}</th>
+                                    <th>{{ $fish->weight }}</th>
+                                    <th>
+                                        <a href="{{ asset('storage/fishesImages/'. $fish->image) }}">
+                                            <img width="100" src="{{ asset('storage/fishesImages/'. $fish->image) }}" alt="">
+                                        </a>
+                                    </th>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <a href="{{ route('fishes.create') }}">Adicionar peixe</a>
-    
+
                     <h2 style="margin-top: 20px;">Classificações</h2>
                     <h3>Por quantidade de peixes</h3>
                     <table class="table">
