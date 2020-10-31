@@ -6,15 +6,46 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <h2 style="margin-top: 20px;">Suas pescarias:</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Endereço</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Lago dos peixes</th>
+                                <th><a href="#">Ver mais</a></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#">Criar nova pescaria</a>
 
-                    <h2>Classificações</h2>
+                    <h2 style="margin-top: 20px;">Peixes pescados:</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tamanho</th>
+                                <th>Massa</th>
+                                <th>Imagem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Teste</th>
+                                <th>25cm</th>
+                                <th>50kg</th>
+                                <th><a href="#">Veja a imagem</a></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ route('fishes.create') }}">Adicionar peixe</a>
+    
+                    <h2 style="margin-top: 20px;">Classificações</h2>
                     <h3>Por quantidade de peixes</h3>
                     <table class="table">
                         <thead>
@@ -82,46 +113,6 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <h2 style="margin-top: 20px;">Suas pescarias:</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Endereço</th>
-                                <th>Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Lago dos peixes</th>
-                                <th><a href="#">Ver mais</a></th>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="#">Criar nova pescaria</a>
-
-                    <h2 style="margin-top: 20px;">Peixes pescados:</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Tamanho</th>
-                                <th>Massa</th>
-                                <th>Imagem</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Teste</th>
-                                <th>25cm</th>
-                                <th>50kg</th>
-                                <th><a href="#">Veja a imagem</a></th>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="{{ route('fishes.create') }}">Adicionar peixe</a>
-
-                    
                 </div>
             </div>
         </div>
