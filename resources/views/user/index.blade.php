@@ -221,9 +221,27 @@
                     </div>
                     
                 </form>
+
+                <div class="form-group row mb-0" style="margin-top: 10px;">
+                        <div class="col-md-6 offset-md-4">
+                            <form action="{{ route('user.delete') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger" onclick="javascript:return deleteAccountConfirmation()">
+                                    Deletar esta conta
+                                </button>
+                            </form>
+                        </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        const deleteAccountConfirmation = () => confirm('Você realmente deseja deletar sua conta?');
+    </script>
 @endsection
