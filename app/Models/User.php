@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Fish');
     }
+
+    public function fishings()
+    {
+        return $this->belongsToMany('App\Models\Fishing', 'users_fishings', 'user_id', 'fishing_id');
+    }
 }
