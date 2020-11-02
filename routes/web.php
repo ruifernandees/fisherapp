@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FishController;
 use App\Http\Controllers\FishingController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,4 @@ Route::post('/peixes/store', [FishController::class, 'store'])->name('fishes.sto
 Route::get('/pescarias/agendar', [FishingController::class, 'create'])->name('fishings.create');
 Route::post('/pescarias/store', [FishingController::class, 'store'])->name('fishings.store');
 
+Route::get('/classificações', [RankingController::class, 'index'])->name('ranking');
