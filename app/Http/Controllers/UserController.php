@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,5 +48,23 @@ class UserController extends Controller
         }
 
         return redirect(route('user.index'))->with('error', 'Erro inesperado');
+    }
+
+    public function delete()
+    {
+        $currentUserId = Auth::user()->id;
+        $currentUserName = Auth::user()->name;
+
+        DB::table('users_fishings')
+            ->where('user_id', '=', $currentUserId)
+            ->delete();
+
+        DB::table('fishes')
+            ->where('user_id', '=', $currentUserId)
+            ->delete();
+
+        User::find($currentUserId)->delete();
+
+        return redirect(route('login'))->with('status', "Usuário deletado com sucesso! Adeus, {$currentUserName}");
     }
 }
