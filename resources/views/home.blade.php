@@ -22,7 +22,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#">Criar nova pescaria</a>
+                    <a href="{{ route('fishings.create') }}">Criar nova pescaria</a>
 
                     <h2 style="margin-top: 20px;">Peixes pescados:</h2>
                     <table class="table">
