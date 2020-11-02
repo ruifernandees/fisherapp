@@ -17,6 +17,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <div class="card-body">
+                    <h2 style="margin-top: 20px;">Classificações:</h2>
+                    <a href="{{ route('ranking') }}">
+                        Acessar página
+                    </a>
                     <h2 style="margin-top: 20px;">Suas pescarias:</h2>
                     <table class="table">
                         <thead>

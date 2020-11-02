@@ -60,6 +60,9 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Dashboard') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('ranking') }}">
+                                        {{ __('Classificações') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
