@@ -28,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/usuario/configuracoes', [UserController::class, 'index'])->name('user.index');
 Route::patch('/usuario/update', [UserController::class, 'update'])->name('user.update');
+Route::delete('usuario/delete', [UserController::class, 'delete'])->name('user.delete');
 
 Route::get('/peixes/criar', [FishController::class, 'create'])->name('fishes.create');
 Route::post('/peixes/store', [FishController::class, 'store'])->name('fishes.store');
