@@ -50,7 +50,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="{{ route('fishings.create') }}">Criar nova pescaria</a>
+                    <a href="{{ route('fishings.create') }}">Agendar pescaria</a>
 
                     <h2 style="margin-top: 20px;">Peixes pescados:</h2>
                     <table class="table">
