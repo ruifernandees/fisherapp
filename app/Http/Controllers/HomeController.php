@@ -30,9 +30,16 @@ class HomeController extends Controller
         $currentUser = User::find($currentUserId);
 
         $fishes = $currentUser->fishes;
+        $fishings = $currentUser->fishings;
         
+        $fishingsLocations = [];
+        foreach ($fishings as $fishing) {
+            $fishingsLocations[] = [$fishing->latitude, $fishing->longitude];
+        }
         return view('home', [
-            'fishes' => $fishes
+            'fishes' => $fishes,
+            'fishings' => $fishings,
+            'fishingsLocations' => $fishingsLocations,
         ]);
     }
 }
