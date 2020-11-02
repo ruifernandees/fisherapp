@@ -60,6 +60,9 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Dashboard') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('user.index') }}">
+                                        {{ __('Configurações') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('ranking') }}">
                                         {{ __('Classificações') }}
                                     </a>
