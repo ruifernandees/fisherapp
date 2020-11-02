@@ -18,4 +18,9 @@ class Fishing extends Model
         'fishing_date',
         'fishing_time'
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User', 'users_fishings', 'fishing_id', 'user_id');
+    }
 }
