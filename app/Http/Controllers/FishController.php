@@ -30,6 +30,6 @@ class FishController extends Controller
             return redirect('peixes/criar')->with('status', 'Peixe pescado adicionado com sucesso!');
         } else {
             return back()->withInput()->withErrors(['Erro inesperado']);
-        };
+        }
     }
 }
