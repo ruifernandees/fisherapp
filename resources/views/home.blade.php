@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+<style>
+    .fishingLocation { height: 200px; width: 200px; }
+</style>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -12,14 +22,32 @@
                         <thead>
                             <tr>
                                 <th>Endereço</th>
-                                <th>Link</th>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Amigos</th>
+                                <th>Localização</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>Lago dos peixes</th>
-                                <th><a href="#">Ver mais</a></th>
-                            </tr>
+                            @foreach ($fishings as $fishing)
+                                <tr>
+                                    <th>{{ $fishing->address }}</th>
+                                    <th>
+                                        {{ date("d/m/y", strtotime($fishing->fishing_date)) }}
+                                    </th>
+                                    <th>
+                                        {{ date("H:i", strtotime($fishing->fishing_time)) }}
+                                    </th>
+                                    <th>
+                                        @foreach ($fishing->users as $friend)
+                                            @if ($friend->id != Auth::user()->id)
+                                                <span>{{ $friend->name }}</span><br>
+                                            @endif
+                                        @endforeach
+                                    </th>
+                                    <th><div class="fishingLocation" id="{{ $fishing->id }}"></div></th>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <a href="{{ route('fishings.create') }}">Criar nova pescaria</a>
@@ -124,4 +152,35 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <script>
+        let locations = @json($fishingsLocations);
+    </script>
+
+   <script>
+        const fishingsLocations = document.getElementsByClassName('fishingLocation');
+        console.log(fishingsLocations)
+        Object.keys(fishingsLocations).forEach(key => {
+            let mymap = L.map(fishingsLocations[key].id).setView(locations[key], 13);
+
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicnVpZmVybmFuZGVlcyIsImEiOiJja2gwcGYxaWgwNzhhMnlyeGNsMHhrbGdxIn0.v8K1FNTZ7-hvxBAXwPIbLg', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoicnVpZmVybmFuZGVlcyIsImEiOiJja2gwcGYxaWgwNzhhMnlyeGNsMHhrbGdxIn0.v8K1FNTZ7-hvxBAXwPIbLg'
+            }).addTo(mymap);    
+
+            let marker = L.marker(locations[key]).addTo(mymap);
+        });
+
+        
+   </script>
 @endsection
