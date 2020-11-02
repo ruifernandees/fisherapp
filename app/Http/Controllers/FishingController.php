@@ -48,6 +48,11 @@ class FishingController extends Controller
                 ]);
             }
 
+            $userFishings[] = UserFishing::create([
+                'user_id' => Auth::user()->id,
+                'fishing_id' => $fishing->id
+            ]);
+
             if ($userFishings) {
                 return redirect('pescarias/agendar')->with('status', 'Pescaria agendada com sucesso!');
             }
