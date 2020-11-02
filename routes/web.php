@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FishController;
+use App\Http\Controllers\FishingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/peixes/criar', [FishController::class, 'create'])->name('fishes.create');
 Route::post('/peixes/store', [FishController::class, 'store'])->name('fishes.store');
+
+Route::get('/pescarias/agendar', [FishingController::class, 'create'])->name('fishings.create');
+Route::post('/pescarias/store', [FishingController::class, 'store'])->name('fishings.store');
 
