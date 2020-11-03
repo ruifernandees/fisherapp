@@ -30,8 +30,8 @@ Route::get('/usuario/configuracoes', [UserController::class, 'index'])->name('us
 Route::patch('/usuario/update', [UserController::class, 'update'])->name('user.update');
 Route::delete('usuario/delete', [UserController::class, 'delete'])->name('user.delete');
 
-Route::get('/peixes/{id}', [FishController::class, 'show'])->name('fishes.show');
 Route::get('/peixes/criar', [FishController::class, 'create'])->name('fishes.create');
+Route::get('/peixes/{id}', [FishController::class, 'show'])->name('fishes.show');
 Route::post('/peixes/store', [FishController::class, 'store'])->name('fishes.store');
 Route::patch('/peixes/update', [FishController::class, 'update'])->name('fishes.update');
 Route::delete('peixes/delete', [FishController::class, 'delete'])->name('fishes.delete');
