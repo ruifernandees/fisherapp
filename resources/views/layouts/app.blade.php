@@ -26,7 +26,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                @guest
+                <a class="navbar-brand" href="{{ url('/') }}">
+                @else
                 <a class="navbar-brand" href="{{ url('/home') }}">
+                @endguest
                     <img 
                         style="width: 150px;"
                         src="{{ asset('images/fisherapp-logo.png') }}" 
