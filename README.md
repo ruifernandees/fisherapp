@@ -1,6 +1,10 @@
 # 🐟 FisherApp
 <img src="public/images/prints/welcome-not-auth.png" alt="Tela inicial do FisherApp">
 
+## 🔗 Useful links / Links úteis
+ER Diagram / Diagrama ER: 
+FisherApp manual: http://bit.ly/fisherapp-manual
+
 ## 📝 Description
 > English
 
@@ -53,6 +57,9 @@ $ php artisan serve
 # Run npm
 $ npm run dev
 ```
+
+## ER Diagram
+<img src="public/images/er-diagram/er-diagram.jpg" alt="FisherApp ER Diagram">
 
 ## Screens
 <div>
