@@ -83,3 +83,11 @@ $ npm run dev
     <p>Fishing update/delete</p>
     <img src="public/images/prints/update-and-delete-fishing.png" alt="Fishing settings">
 </div>
+<div>
+    <p>Add fish</p>
+    <img src="public/images/prints/add-fish.png" alt="Add fish screen">
+</div>
+<div>
+    <p>Schedule fishing</p>
+    <img src="public/images/prints/schedule-fishing.png" alt="Schedule fishing screen">
+</div>
