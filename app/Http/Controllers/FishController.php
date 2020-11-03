@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FishController extends Controller
 {
@@ -36,5 +37,33 @@ class FishController extends Controller
         } else {
             return back()->withInput()->withErrors(['Erro inesperado']);
         }
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->except('_token', '_method', 'id');
+
+        $fishId = $request->only('id')['id'];
+
+        $fish = Fish::find(($fishId));
+
+        if (isset($data['image'])) {
+            Storage::delete("fishesImages/{$fish->image}");
+
+            $request->file('image')->store('fishesImages');
+            $data['image'] = $request->file('image')->hashName();
+        }
+
+        $toUpdate = array_filter($data, function($item) {
+            return $item;
+        });
+
+        $wasUpdated = $fish->update($toUpdate);
+
+        if ($wasUpdated) {
+            return redirect(route('fishes.show', ['id' => $fishId]))->with('status', 'Perfil atualizado com sucesso!');
+        }
+
+        return redirect(route('fishes.show', ['id' => $fishId]))->with('error', 'Erro inesperado');
     }
 }
