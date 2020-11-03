@@ -57,8 +57,8 @@
                                     </th>
                                     <th><div class="fishingLocation" id="{{ $fishing->id }}"></div></th>
                                     <th>
-                                        <a href="#">
-                                            <img src="{{ asset('icons/settings.svg') }}" style="fill: #3490dc;" alt="">
+                                        <a href="{{ route('fishings.show', ['id' => $fishing->id]) }}">
+                                            <img src="{{ asset('icons/settings.svg') }}" alt="">
                                         </a>
                                     </th>
                                 </tr>
