@@ -151,4 +151,21 @@ class FishingController extends Controller
 
         return redirect(route('fishings.show', ['id' => $fishingId]))->with('error', 'Erro inesperado');
     }
+
+    public function delete(Request $request)
+    {
+        $fishingId = $request->only('id')['id'];
+
+        DB::table('users_fishings')
+            ->where('fishing_id', '=', $fishingId)
+            ->delete();
+
+        $fishing = Fishing::find($fishingId);
+
+        $fishingAddress = $fishing->address;
+
+        $fishing->delete();
+
+        return redirect(route('home'))->with('status', "Pescaria em {$fishingAddress} desmarcada com sucesso!");
+    }
 }
