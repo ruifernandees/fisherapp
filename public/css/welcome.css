@@ -1,0 +1,93 @@
+main#welcome {
+    background-image: url('../images/fishing.png');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome #card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+
+    background-color: white;
+}
+
+#welcome #card img {
+    width: 220px;
+}
+
+#welcome #card p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+#welcome #card .buttonWelcome {
+    text-align: center;
+    color: white;
+    background-color: #3490dc;
+
+    padding: 10px 15px;
+    margin: 5px 0;
+
+    border-radius: 5px;
+    border: solid;
+    border-width: 2px;
+    border-color: #3490dc;
+
+    width: 180px;
+    height: 50px;
+
+    transition: all .2s ease;
+}
+
+#welcome #card .buttonWelcome:hover {
+    border-color: black;
+    color: black;
+    background-color: white;
+}
+
+#welcome #card .buttonRegister {
+    background-color: #DB7340;
+    border-color: #DB7340;
+}
+
+@media (min-width: 350px) {
+    #welcome #card {
+        width: 90%;
+    }
+}
+
+@media (min-width: 500px) {
+    #welcome #card {
+        width: 80%;
+    }
+}
+
+@media (min-width: 700px) {
+    #welcome #card {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1000px) {
+    #welcome #card {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #welcome #card {
+        width: 50%;
+    }
+}
