@@ -17,6 +17,11 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <h2 style="margin-top: 20px;">Classificações:</h2>
                     <a href="{{ route('ranking') }}">
                         Acessar página
