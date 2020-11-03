@@ -40,6 +40,7 @@
                                 class="form-control @error('name') is-invalid @enderror" 
                                 name="name" 
                                 value="{{ $user->name }}"  
+                                required
                                 autocomplete="name" 
                                 autofocus
                             />
@@ -66,6 +67,7 @@
                                 class="form-control @error('email') is-invalid @enderror" 
                                 name="email" 
                                 value="{{ $user->email }}"  
+                                required
                                 autocomplete="email" 
                                 autofocus
                             />
@@ -93,6 +95,7 @@
                                     size="11"
                                     class="form-control @error('cpf') is-invalid @enderror" 
                                     name="cpf" 
+                                    required
                                     value="{{ $user->cpf }}" 
                                     autocomplete="cpf"
                                 />
@@ -121,6 +124,7 @@
                                     pattern="[0-9]{2}[0-9]{9}"
                                     class="form-control @error('cpf') is-invalid @enderror" 
                                     name="phone" 
+                                    required
                                     value="{{ $user->phone }}" 
                                     autocomplete="phone"
                                 />
@@ -148,6 +152,7 @@
                                     type="text" 
                                     class="form-control @error('address') is-invalid @enderror" 
                                     name="address" 
+                                    required
                                     value="{{ $user->address }}" 
                                     autocomplete="address"
                                 />
