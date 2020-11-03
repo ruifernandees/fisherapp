@@ -30,6 +30,7 @@
                                 <th>Hora</th>
                                 <th>Amigos</th>
                                 <th>Localização</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,11 @@
                                         @endforeach
                                     </th>
                                     <th><div class="fishingLocation" id="{{ $fishing->id }}"></div></th>
+                                    <th>
+                                        <a href="#">
+                                            <img src="{{ asset('icons/settings.svg') }}" style="fill: #3490dc;" alt="">
+                                        </a>
+                                    </th>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -64,6 +70,7 @@
                                 <th>Tamanho</th>
                                 <th>Massa</th>
                                 <th>Imagem</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,6 +82,11 @@
                                     <th>
                                         <a href="{{ asset('storage/fishesImages/'. $fish->image) }}">
                                             <img width="100" src="{{ asset('storage/fishesImages/'. $fish->image) }}" alt="">
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="{{ route('fishes.show', ['id' => $fish->id]) }}">
+                                            <img src="{{ asset('icons/settings.svg') }}" alt="">
                                         </a>
                                     </th>
                                 </tr>
