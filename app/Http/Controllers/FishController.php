@@ -61,7 +61,7 @@ class FishController extends Controller
         $wasUpdated = $fish->update($toUpdate);
 
         if ($wasUpdated) {
-            return redirect(route('fishes.show', ['id' => $fishId]))->with('status', 'Perfil atualizado com sucesso!');
+            return redirect(route('fishes.show', ['id' => $fishId]))->with('status', 'Peixe atualizado com sucesso!');
         }
 
         return redirect(route('fishes.show', ['id' => $fishId]))->with('error', 'Erro inesperado');
