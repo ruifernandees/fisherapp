@@ -189,7 +189,7 @@
 
 @section('scripts')
     <script>
-        const deleteFishingConfirmation = () => confirm('Você realmente deseja deletar este peixe?');
+        const deleteFishingConfirmation = () => confirm('Você realmente deseja desmarcar esta pescaria?');
     </script>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
