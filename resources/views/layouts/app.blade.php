@@ -57,6 +57,19 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if (Auth::user()->profile_photo)  
+                                        <img 
+                                            style="width: 30px; border-radius: 50%; "
+                                            src="{{ asset('storage/usersPhotos/'. Auth::user()->profile_photo) }}" 
+                                            alt="Sua imagem de perfil"
+                                        />  
+                                    @else
+                                        <img 
+                                            style="margin-bottom: 2px;"
+                                            src="{{ asset('icons/user.svg') }}" 
+                                            alt="Ícone de um Usuário"
+                                        >
+                                    @endif
                                     {{ Auth::user()->name }}
                                 </a>
 
