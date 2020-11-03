@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class FishController extends Controller
 {
+    public function show(string $id)
+    {
+        return view('fishes.show', ['fish' => Fish::findOrFail($id)]);
+    }
+
     public function create()
     {
         return view('create_fish');
