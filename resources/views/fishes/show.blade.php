@@ -148,10 +148,11 @@
 
                 <div class="form-group row mb-0" style="margin-top: 10px;">
                     <div class="col-md-6 offset-md-4">
-                        <form action="{{ route('user.delete') }}" method="POST">
+                        <form action="{{ route('fishes.delete') }}" method="POST">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger" onclick="javascript:return deleteAccountConfirmation()">
+                            <input type="hidden" name="id" value="{{ $fish->id }}">
+                            <button type="submit" class="btn btn-danger" onclick="javascript:return deleteFishConfirmation()">
                                 Deletar este peixe
                             </button>
                         </form>
@@ -166,6 +167,6 @@
 
 @section('scripts')
     <script>
-        const deleteAccountConfirmation = () => confirm('Você realmente deseja deletar este peixe?');
+        const deleteFishConfirmation = () => confirm('Você realmente deseja deletar este peixe?');
     </script>
 @endsection
