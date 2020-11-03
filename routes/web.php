@@ -37,6 +37,9 @@ Route::patch('/peixes/update', [FishController::class, 'update'])->name('fishes.
 Route::delete('peixes/delete', [FishController::class, 'delete'])->name('fishes.delete');
 
 Route::get('/pescarias/agendar', [FishingController::class, 'create'])->name('fishings.create');
+Route::get('/pescarias/{id}', [FishingController::class, 'show'])->name('fishings.show');
 Route::post('/pescarias/store', [FishingController::class, 'store'])->name('fishings.store');
+Route::patch('/pescarias/update', [FishingController::class, 'update'])->name('fishings.update');
+Route::delete('/pescarias/delete', [FishingController::class, 'delete'])->name('fishings.delete');
 
 Route::get('/classificações', [RankingController::class, 'index'])->name('ranking');
