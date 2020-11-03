@@ -31,23 +31,27 @@ class FishingController extends Controller
         // var_dump($request->except(['_token']));
 
         $fishingData = $request->except(['_token', 'friends']);
-        $friends = $request->only(['friends'])['friends'];
 
-        // var_dump('Fishing ', $fishingData);
+        if (isset($request->only(['friends'])['friends'])) {
+            $friends = $request->only(['friends'])['friends'];
+        }
         
         $fishing = Fishing::create($fishingData);
 
         if ($fishing) {
-            $friendsObjects = User::find($friends);
-
             $userFishings = [];
-            foreach ($friendsObjects as $friend) {
-                $userFishings[] = UserFishing::create([
-                    'user_id' => $friend->id,
-                    'fishing_id' => $fishing->id
-                ]);
-            }
 
+            if (isset($friends)) {
+                $friendsObjects = User::find($friends);
+
+                foreach ($friendsObjects as $friend) {
+                    $userFishings[] = UserFishing::create([
+                        'user_id' => $friend->id,
+                        'fishing_id' => $fishing->id
+                    ]);
+                }
+            }
+            
             $userFishings[] = UserFishing::create([
                 'user_id' => Auth::user()->id,
                 'fishing_id' => $fishing->id
