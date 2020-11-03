@@ -2,8 +2,8 @@
 <img src="public/images/prints/welcome-not-auth.png" alt="Tela inicial do FisherApp">
 
 ## 🔗 Useful links / Links úteis
-ER Diagram / Diagrama ER: 
-FisherApp manual: http://bit.ly/fisherapp-manual
+### ER Diagram / Diagrama ER: http://bit.ly/fisherapp-er-diagram
+### FisherApp manual: http://bit.ly/fisherapp-manual
 
 ## 📝 Description
 > English
