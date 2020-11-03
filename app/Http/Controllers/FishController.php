@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class FishController extends Controller
 {
-    public function show(string $id)
-    {
-        return view('fishes.show', ['fish' => Fish::findOrFail($id)]);
-    }
-
     public function create()
     {
         return view('create_fish');
+    }
+
+    public function show(string $id)
+    {
+        return view('fishes.show', ['fish' => Fish::findOrFail($id)]);
     }
 
     public function store(Request $request)
@@ -65,5 +65,18 @@ class FishController extends Controller
         }
 
         return redirect(route('fishes.show', ['id' => $fishId]))->with('error', 'Erro inesperado');
+    }
+
+    public function delete(Request $request)
+    {
+        $fishId = $request->only('id')['id'];
+        var_dump($fishId);
+
+        $fish = Fish::find($fishId);
+        $fishName = $fish->name;
+
+        $fish->delete();
+
+        return redirect(route('home'))->with('status', "Peixe {$fishName} deletado com sucesso!");
     }
 }
